@@ -22,7 +22,7 @@ jobs:
     - name: List and Delete Untagged Containers
       env:
         GHCR_PACKAGE_NAME: devx-devcontainer
-        OWNER: input-output-hk
+        OWNER: sgillespie
       run: |
         untagged_images=$(gh api -X GET /user/packages/container/$GHCR_PACKAGE_NAME/versions --paginate --jq '.[] | select(.metadata.container.tags | length == 0) | .id')
         for image_id in $untagged_images; do

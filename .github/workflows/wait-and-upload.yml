@@ -103,7 +103,7 @@ jobs:
 
   codespace-upload:
     env:
-      IMAGE_NAME: input-output-hk/devx-devcontainer
+      IMAGE_NAME: sgillespie/devx-devcontainer
     needs: ghcr-upload
     permissions:
       packages: write
