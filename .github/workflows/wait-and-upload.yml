@@ -34,6 +34,8 @@ env:
 jobs:
   wait-for-hydra:
     name: "Wait for hydra status"
+    # TODO: The notification mechanism for Hydra is currently broken. Remove me after its fixed
+    if: false
     runs-on: ubuntu-latest
     steps:
     - name: Get specific check run status

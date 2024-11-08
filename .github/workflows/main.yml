@@ -1,8 +1,10 @@
 name: Prebuild DevX closures
 on:
-  push:
-    branches:
-      - main
+  # TODO: The notification mechanism for Hydra is currently broken. Remove me after its fixed.
+  # For now, the only way to run this is manually dispatching it.
+  # push:
+  #   branches:
+  #     - main
 
   workflow_dispatch:
 
