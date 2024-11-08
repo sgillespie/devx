@@ -1,8 +1,10 @@
 name: Prebuild DevX closures
 on:
-  push:
-    branches:
-      - main
+  # TODO: The notification mechanism for Hydra is currently broken. Remove me after its fixed.
+  # For now, the only way to run this is manually dispatching it.
+  # push:
+  #   branches:
+  #     - main
 
   workflow_dispatch:
 
@@ -16,6 +18,8 @@ jobs:
       HYDRA_JOB: ci/eval
       GH_TOKEN: ${{ github.token }}
     name: "Wait for hydra status"
+    # TODO: The notification mechanism for Hydra is currently broken. Remove me after its fixed
+    if: false
     runs-on: ubuntu-latest
     steps:
     - uses: input-output-hk/actions/wait-for-hydra@latest
@@ -23,7 +27,8 @@ jobs:
         status: ci/hydra-build:required
 
   upload:
-    needs: wait-for-hydra-eval
+    # TODO: The notification mechanism for Hydra is currently broken.
+    needs: []
     name: Container Upload
     strategy:
       fail-fast: false
